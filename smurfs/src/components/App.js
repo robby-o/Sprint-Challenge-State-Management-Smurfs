@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { getSmurfs } from "../actions/smurfActions";
 import SmurfList from "./SmurfList";
+import SmurfForm from "./SmurfForm";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const App = () => {
       <button onClick={fetchSmurfs} className="button">
         Grab smurfs
       </button>
+      <SmurfForm />
       <SmurfList />
     </div>
   );
