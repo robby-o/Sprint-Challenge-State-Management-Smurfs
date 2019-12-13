@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { submitSmurf } from "../actions/smurfActions";
+import { getSmurfs } from "../actions/smurfActions";
+
 const SmurfForm = () => {
   const [smurf, setSmurf] = useState({
     name: "",
@@ -20,8 +22,10 @@ const SmurfForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(submitSmurf(smurf));
+    submitSmurf(smurf);
     setSmurf({ name: "", age: "", height: "" });
+
+    setTimeout(() => dispatch(getSmurfs()), 1000);
   };
 
   return (

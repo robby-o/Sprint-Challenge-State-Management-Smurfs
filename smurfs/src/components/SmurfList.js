@@ -2,14 +2,19 @@ import React, { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { deleteSmurf } from "../actions/smurfActions";
+import { getSmurfs } from "../actions/smurfActions";
 
 const SmurfList = () => {
   const smurfs = useSelector(state => state.smurfs);
   const isFetching = useSelector(state => state.isFetching);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const deletetion = id => deleteSmurf(id);
+  const deletetion = id => {
+    deleteSmurf(id);
+
+    setTimeout(() => dispatch(getSmurfs()), 1000);
+  };
 
   return (
     <>
