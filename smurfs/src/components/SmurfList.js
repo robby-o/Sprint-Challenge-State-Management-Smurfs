@@ -1,9 +1,15 @@
 import React, { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import { deleteSmurf } from "../actions/smurfActions";
+
 const SmurfList = () => {
   const smurfs = useSelector(state => state.smurfs);
   const isFetching = useSelector(state => state.isFetching);
+
+  // const dispatch = useDispatch();
+
+  const deletetion = id => deleteSmurf(id);
 
   return (
     <>
@@ -15,6 +21,7 @@ const SmurfList = () => {
             <p>{smurf.name}</p>
             <p>{smurf.height}</p>
             <p>{smurf.age}</p>
+            <button onClick={() => deletetion(smurf.id)}>Delete Me</button>
           </div>
         ))}
     </>

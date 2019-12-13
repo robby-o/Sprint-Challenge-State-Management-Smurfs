@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { submitSmurf } from "../actions/smurfActions";
@@ -10,9 +10,6 @@ const SmurfForm = () => {
   });
 
   const dispatch = useDispatch();
-  //   const uploadSmurf = useCallback(() => dispatch(submitSmurf(smurf)), [
-  //     dispatch
-  //   ]);
 
   const handleChanges = e => {
     setSmurf({
